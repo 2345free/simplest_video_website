@@ -1,17 +1,17 @@
 /**
- * ×î¼òµ¥µÄÊÓÆµÍøÕ¾
+ * æœ€ç®€å•çš„è§†é¢‘ç½‘ç«™
  * Simplest Video Website
  *
- * À×Ïöæè Lei Xiaohua
+ * é›·éœ„éª… Lei Xiaohua
  * 
  * leixiaohua1020@126.com
- * ÖĞ¹ú´«Ã½´óÑ§/Êı×ÖµçÊÓ¼¼Êõ
+ * ä¸­å›½ä¼ åª’å¤§å­¦/æ•°å­—ç”µè§†æŠ€æœ¯
  * Communication University of China / Digital TV Technology
  * http://blog.csdn.net/leixiaohua1020
  *
- * ±¾³ÌĞòÊÇÒ»¸ö×î¼òµ¥µÄÊÓÆµÍøÕ¾ÊÓÆµ¡£ËüÖ§³Ö
- * 1.Ö±²¥
- * 2.µã²¥
+ * æœ¬ç¨‹åºæ˜¯ä¸€ä¸ªæœ€ç®€å•çš„è§†é¢‘ç½‘ç«™è§†é¢‘ã€‚å®ƒæ”¯æŒ
+ * 1.ç›´æ’­
+ * 2.ç‚¹æ’­
  * This software is the simplest video website.
  * It support: 
  * 1. live broadcast 
@@ -19,30 +19,20 @@
  */
 package action.video;
 
-import java.io.BufferedInputStream;
-import java.io.BufferedOutputStream;
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-import java.io.InputStream;
-import java.io.OutputStream;
-import java.sql.Timestamp;
-import java.util.Date;
-
-import org.apache.struts2.ServletActionContext;
-
-import service.BaseService;
-
 import bean.Category;
 import bean.Configure;
 import bean.Video;
 import bean.Videostate;
-
 import com.opensymphony.xwork2.ActionSupport;
+import org.apache.struts2.ServletActionContext;
+import service.BaseService;
+
+import java.io.*;
+import java.sql.Timestamp;
+import java.util.Date;
 /**
- * @author À×Ïöæè
- * Ìí¼ÓÊÓÆµµÄAction
+ * @author é›·éœ„éª…
+ * æ·»åŠ è§†é¢‘çš„Action
  */
 public class VideoAdd extends ActionSupport {
 	private static final int FILE_SIZE=16*1024;
@@ -104,9 +94,9 @@ public class VideoAdd extends ActionSupport {
 		this.url = url;
 	}
 	/**
-	 * Ğ´ÈëÎÄ¼şÊ±ºòÓÃµ½µÄº¯Êı
-	 * @param source Ô´ÎÄ¼ş
-	 * @param target Ä¿±êÎÄ¼ş
+	 * å†™å…¥æ–‡ä»¶æ—¶å€™ç”¨åˆ°çš„å‡½æ•°
+	 * @param source æºæ–‡ä»¶
+	 * @param target ç›®æ ‡æ–‡ä»¶
 	 */
 	 public void upLoadFile(File source,File target){
 		  InputStream in=null;
@@ -141,12 +131,12 @@ public class VideoAdd extends ActionSupport {
 			Configure folder_videoori_cfg=(Configure) baseService.ReadSingle("Configure", "name", "folder_videoori");
 			Configure folder_thumbnail_cfg=(Configure) baseService.ReadSingle("Configure", "name", "folder_thumbnail");
 			if(islive==0){
-				//µã²¥
+				//ç‚¹æ’­
 				String oriurl=folder_videoori_cfg.getVal()+"/"+videofileFileName;
 				video.setOriurl(oriurl);
 				Category category=(Category) baseService.ReadSingle("Category", "id", 1);
 				video.setCategory(category);
-				//×´Ì¬ÉèÖÃ£ºµÈ´ıÉÏ´«
+				//çŠ¶æ€è®¾ç½®ï¼šç­‰å¾…ä¸Šä¼ 
 				Videostate videostate=(Videostate) baseService.ReadSingle("Videostate", "order", order);
 				video.setVideostate(videostate);
 				video.setIslive(0);
@@ -155,7 +145,7 @@ public class VideoAdd extends ActionSupport {
 				video.setThumbnailurl(defaultthumbnail);
 				baseService.save(video);
 				
-				//ÉÏ´«ÊÓÆµÎÄ¼ş
+				//ä¸Šä¼ è§†é¢‘æ–‡ä»¶
 				String realfileoriDir=ServletActionContext.getServletContext().getRealPath(folder_videoori_cfg.getVal()).replace('\\', '/');
 				//Check
 				File realfileoriDirFile =new File(realfileoriDir);
@@ -167,17 +157,17 @@ public class VideoAdd extends ActionSupport {
 				String realfileoriPath=realfileoriDir+"/"+videofileFileName;
 				File targetFile=new File(realfileoriPath);
 				upLoadFile(videofile,targetFile);
-				//µÈ´ı½ØÍ¼
+				//ç­‰å¾…æˆªå›¾
 				videostate=(Videostate) baseService.ReadSingle("Videostate", "order", order+1);
 				video.setVideostate(videostate);
 				baseService.update(video);
 			}else{
-				//Ö±²¥
+				//ç›´æ’­
 				Category category=(Category) baseService.ReadSingle("Category", "id", 2);
 				video.setCategory(category);
 				video.setUrl(url);
 				video.setIslive(1);
-				//µÈ´ı½ØÍ¼
+				//ç­‰å¾…æˆªå›¾
 				Videostate videostate=(Videostate) baseService.ReadSingle("Videostate", "order", order+1);
 				video.setVideostate(videostate);
 				//Default Thumbnail

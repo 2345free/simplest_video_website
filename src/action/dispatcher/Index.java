@@ -1,17 +1,17 @@
 /**
- * ×î¼òµ¥µÄÊÓÆµÍøÕ¾
+ * æœ€ç®€å•çš„è§†é¢‘ç½‘ç«™
  * Simplest Video Website
  *
- * À×Ïöæè Lei Xiaohua
+ * é›·éœ„éª… Lei Xiaohua
  * 
  * leixiaohua1020@126.com
- * ÖĞ¹ú´«Ã½´óÑ§/Êı×ÖµçÊÓ¼¼Êõ
+ * ä¸­å›½ä¼ åª’å¤§å­¦/æ•°å­—ç”µè§†æŠ€æœ¯
  * Communication University of China / Digital TV Technology
  * http://blog.csdn.net/leixiaohua1020
  *
- * ±¾³ÌĞòÊÇÒ»¸ö×î¼òµ¥µÄÊÓÆµÍøÕ¾ÊÓÆµ¡£ËüÖ§³Ö
- * 1.Ö±²¥
- * 2.µã²¥
+ * æœ¬ç¨‹åºæ˜¯ä¸€ä¸ªæœ€ç®€å•çš„è§†é¢‘ç½‘ç«™è§†é¢‘ã€‚å®ƒæ”¯æŒ
+ * 1.ç›´æ’­
+ * 2.ç‚¹æ’­
  * This software is the simplest video website.
  * It support: 
  * 1. live broadcast 
@@ -28,7 +28,7 @@ import bean.Video;
 
 import com.opensymphony.xwork2.ActionSupport;
 /**
- * @author À×Ïöæè
+ * @author é›·éœ„éª…
  * Action
  */
 public class Index extends ActionSupport {
@@ -71,12 +71,12 @@ public class Index extends ActionSupport {
 
 	public String execute(){
 		try{
-			//Ëæ»úÏÔÊ¾Ò»Ğ©ËõÂÔÍ¼
+			//éšæœºæ˜¾ç¤ºä¸€äº›ç¼©ç•¥å›¾
 			int count=baseService.ReadCountByProperty("Video", "islive", 0);
 			List<Video> allvideo=baseService.ReadByProperty("Video","islive",0);
 			//System.out.println(allvideo);
 			resultvideo=new ArrayList();
-			//Í¼Æ¬ÊıÁ¿
+			//å›¾ç‰‡æ•°é‡
 			int num;
 			if(count>6){
 				num=6;
@@ -84,7 +84,7 @@ public class Index extends ActionSupport {
 				num=count;
 			}
 			for(int i=0;i<num;i++){
-				//Ëæ»úÊı
+				//éšæœºæ•°
 				int idx=(int) (Math.random()*count);
 				if(idx<count){
 					Video video=allvideo.get(idx);

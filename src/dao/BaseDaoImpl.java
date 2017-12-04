@@ -1,17 +1,17 @@
 /**
- * ×î¼òµ¥µÄÊÓÆµÍøÕ¾
+ * æœ€ç®€å•çš„è§†é¢‘ç½‘ç«™
  * Simplest Video Website
  *
- * À×Ïöæè Lei Xiaohua
+ * é›·éœ„éª… Lei Xiaohua
  * 
  * leixiaohua1020@126.com
- * ÖĞ¹ú´«Ã½´óÑ§/Êı×ÖµçÊÓ¼¼Êõ
+ * ä¸­å›½ä¼ åª’å¤§å­¦/æ•°å­—ç”µè§†æŠ€æœ¯
  * Communication University of China / Digital TV Technology
  * http://blog.csdn.net/leixiaohua1020
  *
- * ±¾³ÌĞòÊÇÒ»¸ö×î¼òµ¥µÄÊÓÆµÍøÕ¾ÊÓÆµ¡£ËüÖ§³Ö
- * 1.Ö±²¥
- * 2.µã²¥
+ * æœ¬ç¨‹åºæ˜¯ä¸€ä¸ªæœ€ç®€å•çš„è§†é¢‘ç½‘ç«™è§†é¢‘ã€‚å®ƒæ”¯æŒ
+ * 1.ç›´æ’­
+ * 2.ç‚¹æ’­
  * This software is the simplest video website.
  * It support: 
  * 1. live broadcast 
@@ -31,9 +31,9 @@ import org.springframework.orm.hibernate3.support.HibernateDaoSupport;
 
 
 /**
- * @author À×Ïöæè
- * HibernateTemplateÌá¹©·Ç³£¶àµÄ³£ÓÃ·½·¨À´Íê³É»ù±¾µÄ²Ù×÷£¬±ÈÈçÍ¨³£µÄÔö¼Ó¡¢É¾³ı¡¢ĞŞ¸Ä¡¢²éÑ¯µÈ²Ù×÷£¬
- * Spring 2.0¸üÔö¼Ó¶ÔÃüÃûSQL²éÑ¯µÄÖ§³Ö£¬Ò²Ôö¼Ó¶Ô·ÖÒ³µÄÖ§³Ö¡£´ó²¿·ÖÇé¿öÏÂ£¬¾Í¿ÉÍê³É´ó¶àÊıDAO¶ÔÏóµÄCRUD²Ù×÷¡£
+ * @author é›·éœ„éª…
+ * HibernateTemplateæä¾›éå¸¸å¤šçš„å¸¸ç”¨æ–¹æ³•æ¥å®ŒæˆåŸºæœ¬çš„æ“ä½œï¼Œæ¯”å¦‚é€šå¸¸çš„å¢åŠ ã€åˆ é™¤ã€ä¿®æ”¹ã€æŸ¥è¯¢ç­‰æ“ä½œï¼Œ
+ * Spring 2.0æ›´å¢åŠ å¯¹å‘½åSQLæŸ¥è¯¢çš„æ”¯æŒï¼Œä¹Ÿå¢åŠ å¯¹åˆ†é¡µçš„æ”¯æŒã€‚å¤§éƒ¨åˆ†æƒ…å†µä¸‹ï¼Œå°±å¯å®Œæˆå¤§å¤šæ•°DAOå¯¹è±¡çš„CRUDæ“ä½œã€‚
  */
 public class BaseDaoImpl extends HibernateDaoSupport implements BaseDao{
 
@@ -56,7 +56,7 @@ public class BaseDaoImpl extends HibernateDaoSupport implements BaseDao{
 	public Object ReadSingle(final String targetName,final String propertyName, final Object value) {
 		// TODO Auto-generated method stub
 		return (Object) getHibernateTemplate().execute(new HibernateCallback<Object>() {
-			/*doInHibernate()¡£sessionµÄ´´½¨ºÍÏú»Ù£¬Ò»ÇĞ¶¼ÔÚ³ÌĞòÄÚ²¿Íê³É¡£*/
+			/*doInHibernate()ã€‚sessionçš„åˆ›å»ºå’Œé”€æ¯ï¼Œä¸€åˆ‡éƒ½åœ¨ç¨‹åºå†…éƒ¨å®Œæˆã€‚*/
 			public Object doInHibernate(Session session)
 					throws HibernateException, SQLException {
 				String hql = "from "+targetName+" as "+targetName+" where "+targetName+"." + propertyName + "=:value";
@@ -81,7 +81,7 @@ public class BaseDaoImpl extends HibernateDaoSupport implements BaseDao{
 			final Object value) {
 		// TODO Auto-generated method stub
 		return (List<Object>) getHibernateTemplate().execute(new HibernateCallback<Object>() {
-			/*doInHibernate()¡£sessionµÄ´´½¨ºÍÏú»Ù£¬Ò»ÇĞ¶¼ÔÚ³ÌĞòÄÚ²¿Íê³É¡£*/
+			/*doInHibernate()ã€‚sessionçš„åˆ›å»ºå’Œé”€æ¯ï¼Œä¸€åˆ‡éƒ½åœ¨ç¨‹åºå†…éƒ¨å®Œæˆã€‚*/
 			public Object doInHibernate(Session session)
 					throws HibernateException, SQLException {
 				String hql = "from "+targetName+" as "+targetName+" where "+targetName+"." + propertyName + "=:value";
@@ -99,20 +99,20 @@ public class BaseDaoImpl extends HibernateDaoSupport implements BaseDao{
 		// TODO Auto-generated method stub
 		return null;
 	}
-//ÕâÀïÔÚHibernate2.0Ö®Ç°°æ±¾list.get(0)·µ»ØµÄÊÇIntegerÀàĞÍ. 
-//µ«ÊÇÔÚHibernate3.0ÒÔºó°æ±¾list.get(0)·µ»ØµÄÊÇLongÀàĞÍ. 
-//ËùÒÔÔÚÕâÀï²»¿ÉÒÔÓÉLongĞÍÇ¿×ª³ÉIntegerÀàĞÍ. 
-//IntegerÊôÓÚ²»¿É¸ü¸ÄÀàĞÍ£¬¶øÇÒLongºÍIntegerÃ»ÓĞÈÎºÎ¼Ì³Ğ¹ØÏµ£¬µ±È»²»ÄÜÕâÑù×ª»»¡£
+//è¿™é‡Œåœ¨Hibernate2.0ä¹‹å‰ç‰ˆæœ¬list.get(0)è¿”å›çš„æ˜¯Integerç±»å‹. 
+//ä½†æ˜¯åœ¨Hibernate3.0ä»¥åç‰ˆæœ¬list.get(0)è¿”å›çš„æ˜¯Longç±»å‹. 
+//æ‰€ä»¥åœ¨è¿™é‡Œä¸å¯ä»¥ç”±Longå‹å¼ºè½¬æˆIntegerç±»å‹. 
+//Integerå±äºä¸å¯æ›´æ”¹ç±»å‹ï¼Œè€Œä¸”Longå’ŒIntegeræ²¡æœ‰ä»»ä½•ç»§æ‰¿å…³ç³»ï¼Œå½“ç„¶ä¸èƒ½è¿™æ ·è½¬æ¢ã€‚
 	@Override
 	public Integer ReadCount(final String targetName) {
 		// TODO Auto-generated method stub
 		return (Integer) getHibernateTemplate().execute(new HibernateCallback<Object>() {
-			/*doInHibernate()¡£sessionµÄ´´½¨ºÍÏú»Ù£¬Ò»ÇĞ¶¼ÔÚ³ÌĞòÄÚ²¿Íê³É¡£*/
+			/*doInHibernate()ã€‚sessionçš„åˆ›å»ºå’Œé”€æ¯ï¼Œä¸€åˆ‡éƒ½åœ¨ç¨‹åºå†…éƒ¨å®Œæˆã€‚*/
 			public Object doInHibernate(Session session)
 					throws HibernateException, SQLException {
 				String hql = "select count(*) from "+targetName;
 				//System.out.println(hql);
-				//×¢:java.lang.NumberÊÇInteger,LongµÄ¸¸Àà.
+				//æ³¨:java.lang.Numberæ˜¯Integer,Longçš„çˆ¶ç±».
 				return ((Number)session.createQuery(hql).iterate().next()).intValue();
 			}
 		});
@@ -122,7 +122,7 @@ public class BaseDaoImpl extends HibernateDaoSupport implements BaseDao{
 	public Integer ReadCountByProperty(final String targetName,final String propertyName, final Object value) {
 		// TODO Auto-generated method stub
 		return (Integer) getHibernateTemplate().execute(new HibernateCallback<Object>() {
-			/*doInHibernate()¡£sessionµÄ´´½¨ºÍÏú»Ù£¬Ò»ÇĞ¶¼ÔÚ³ÌĞòÄÚ²¿Íê³É¡£*/
+			/*doInHibernate()ã€‚sessionçš„åˆ›å»ºå’Œé”€æ¯ï¼Œä¸€åˆ‡éƒ½åœ¨ç¨‹åºå†…éƒ¨å®Œæˆã€‚*/
 			public Object doInHibernate(Session session)
 					throws HibernateException, SQLException {
 				String hql = "select count(*) from "+targetName+" as "+targetName+" where "+targetName+"." + propertyName + "=:value";
@@ -142,12 +142,12 @@ public class BaseDaoImpl extends HibernateDaoSupport implements BaseDao{
 			final String propertyName, final int num, final String order) {
 		// TODO Auto-generated method stub
 		return (List<Object>) getHibernateTemplate().execute(new HibernateCallback<Object>() {
-			/*doInHibernate()¡£sessionµÄ´´½¨ºÍÏú»Ù£¬Ò»ÇĞ¶¼ÔÚ³ÌĞòÄÚ²¿Íê³É¡£*/
+			/*doInHibernate()ã€‚sessionçš„åˆ›å»ºå’Œé”€æ¯ï¼Œä¸€åˆ‡éƒ½åœ¨ç¨‹åºå†…éƒ¨å®Œæˆã€‚*/
 			public Object doInHibernate(Session session) throws HibernateException, SQLException {
 				String hql ="from "+targetName+" as "+targetName+ " order by "+targetName+"." + propertyName+ " " + order;
 				Query query = session.createQuery(hql);
 				query.setMaxResults(num);
-				//µ±·µ»ØµÄÊı¾İ²»ÊÇÒ»ÌõµÄÊ±ºò£¬²»ÓÃuniqueresult()£¬¶øÓÃlist()
+				//å½“è¿”å›çš„æ•°æ®ä¸æ˜¯ä¸€æ¡çš„æ—¶å€™ï¼Œä¸ç”¨uniqueresult()ï¼Œè€Œç”¨list()
 				return query.list();
 			}
 		});
@@ -159,7 +159,7 @@ public class BaseDaoImpl extends HibernateDaoSupport implements BaseDao{
 			final Object readvalue,final String orderpropertyName, final int num, final String order) {
 		// TODO Auto-generated method stub
 		return (List<Object>) getHibernateTemplate().execute(new HibernateCallback<Object>() {
-			/*doInHibernate()¡£sessionµÄ´´½¨ºÍÏú»Ù£¬Ò»ÇĞ¶¼ÔÚ³ÌĞòÄÚ²¿Íê³É¡£*/
+			/*doInHibernate()ã€‚sessionçš„åˆ›å»ºå’Œé”€æ¯ï¼Œä¸€åˆ‡éƒ½åœ¨ç¨‹åºå†…éƒ¨å®Œæˆã€‚*/
 			public Object doInHibernate(Session session)
 					throws HibernateException, SQLException {
 				String hql = "from "+targetName+" as "+targetName+" where "+targetName+"." + readpropertyName + "=:value"+

@@ -1,17 +1,17 @@
 /**
- * ×î¼òµ¥µÄÊÓÆµÍøÕ¾
+ * æœ€ç®€å•çš„è§†é¢‘ç½‘ç«™
  * Simplest Video Website
  *
- * À×Ïöæè Lei Xiaohua
+ * é›·éœ„éª… Lei Xiaohua
  * 
  * leixiaohua1020@126.com
- * ÖĞ¹ú´«Ã½´óÑ§/Êı×ÖµçÊÓ¼¼Êõ
+ * ä¸­å›½ä¼ åª’å¤§å­¦/æ•°å­—ç”µè§†æŠ€æœ¯
  * Communication University of China / Digital TV Technology
  * http://blog.csdn.net/leixiaohua1020
  *
- * ±¾³ÌĞòÊÇÒ»¸ö×î¼òµ¥µÄÊÓÆµÍøÕ¾ÊÓÆµ¡£ËüÖ§³Ö
- * 1.Ö±²¥
- * 2.µã²¥
+ * æœ¬ç¨‹åºæ˜¯ä¸€ä¸ªæœ€ç®€å•çš„è§†é¢‘ç½‘ç«™è§†é¢‘ã€‚å®ƒæ”¯æŒ
+ * 1.ç›´æ’­
+ * 2.ç‚¹æ’­
  * This software is the simplest video website.
  * It support: 
  * 1. live broadcast 
@@ -43,8 +43,8 @@ import service.BaseService;
 
 
 /**
- * @author À×Ïöæè
- * ½ØÈ¡ËõÂÔÍ¼
+ * @author é›·éœ„éª…
+ * æˆªå–ç¼©ç•¥å›¾
  */
 public class VideoThumbnailThread extends Thread {
 	private ServletContext servletContext;
@@ -110,7 +110,7 @@ public class VideoThumbnailThread extends Thread {
 						while ((lineStr = inBr.readLine()) != null)  
 								System.out.println(lineStr);
 						if (process.waitFor() != 0) {  
-							if (process.exitValue() == 1)//p.exitValue()==0±íÊ¾Õı³£½áÊø£¬1£º·ÇÕı³£½áÊø  
+							if (process.exitValue() == 1)//p.exitValue()==0è¡¨ç¤ºæ­£å¸¸ç»“æŸï¼Œ1ï¼šéæ­£å¸¸ç»“æŸ  
 								System.err.println("Failed!");  
 						}  
 						inBr.close();  

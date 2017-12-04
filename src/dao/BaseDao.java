@@ -1,17 +1,17 @@
 /**
- * ×î¼òµ¥µÄÊÓÆµÍøÕ¾
+ * æœ€ç®€å•çš„è§†é¢‘ç½‘ç«™
  * Simplest Video Website
  *
- * À×Ïöæè Lei Xiaohua
+ * é›·éœ„éª… Lei Xiaohua
  * 
  * leixiaohua1020@126.com
- * ÖĞ¹ú´«Ã½´óÑ§/Êı×ÖµçÊÓ¼¼Êõ
+ * ä¸­å›½ä¼ åª’å¤§å­¦/æ•°å­—ç”µè§†æŠ€æœ¯
  * Communication University of China / Digital TV Technology
  * http://blog.csdn.net/leixiaohua1020
  *
- * ±¾³ÌĞòÊÇÒ»¸ö×î¼òµ¥µÄÊÓÆµÍøÕ¾ÊÓÆµ¡£ËüÖ§³Ö
- * 1.Ö±²¥
- * 2.µã²¥
+ * æœ¬ç¨‹åºæ˜¯ä¸€ä¸ªæœ€ç®€å•çš„è§†é¢‘ç½‘ç«™è§†é¢‘ã€‚å®ƒæ”¯æŒ
+ * 1.ç›´æ’­
+ * 2.ç‚¹æ’­
  * This software is the simplest video website.
  * It support: 
  * 1. live broadcast 
@@ -23,50 +23,50 @@ import java.util.List;
 
 
 /**
- * @author À×Ïöæè
- * ¶ÔObjectµÄDAO²Ù×÷
- * °üº¬ÁËÍ¨ÓÃµÄÒ»Ğ©·½·¨
+ * @author é›·éœ„éª…
+ * å¯¹Objectçš„DAOæ“ä½œ
+ * åŒ…å«äº†é€šç”¨çš„ä¸€äº›æ–¹æ³•
  */
 
 public interface BaseDao {
 	/**
-	 * ±£´æÒ»¸ö¶ÔÏó
-	 * @param object Ò»¸ö¶ÔÏó
+	 * ä¿å­˜ä¸€ä¸ªå¯¹è±¡
+	 * @param object ä¸€ä¸ªå¯¹è±¡
 	 */
 	public void save(Object object);
 
 	 /**
-	  * ¸üĞÂÒ»¸ö¶ÔÏó
-	  * @param object Ò»¸ö¶ÔÏó
+	  * æ›´æ–°ä¸€ä¸ªå¯¹è±¡
+	  * @param object ä¸€ä¸ªå¯¹è±¡
 	  */
 	public void update(Object object);
 	
 	 /**
-	  * É¾³ıÒ»¸ö¶ÔÏó
-	  * @param object Ò»¸ö¶ÔÏó
+	  * åˆ é™¤ä¸€ä¸ªå¯¹è±¡
+	  * @param object ä¸€ä¸ªå¯¹è±¡
 	  */
 	public void delete(Object object);
 	
 	 /**
-	  * ¸ù¾İ¡°ÊôĞÔ-Öµ¡±»ñÈ¡Ò»¸öÖ¸¶¨ÀàĞÍµÄ¶ÔÏó
-	  * @param targetName ¶ÔÏóÀàĞÍÃû³Æ
-	  * @param propertyName ¶ÔÏóÖĞÊôĞÔµÄÃû³Æ
-	  * @param propertyValue ¶ÔÏóÖĞÊôĞÔµÄÖµ
-	  * @return Ò»¸ö¶ÔÏó
+	  * æ ¹æ®â€œå±æ€§-å€¼â€è·å–ä¸€ä¸ªæŒ‡å®šç±»å‹çš„å¯¹è±¡
+	  * @param targetName å¯¹è±¡ç±»å‹åç§°
+	  * @param propertyName å¯¹è±¡ä¸­å±æ€§çš„åç§°
+	  * @param propertyValue å¯¹è±¡ä¸­å±æ€§çš„å€¼
+	  * @return ä¸€ä¸ªå¯¹è±¡
 	  */
 	public Object ReadSingle(String targetName,String propertyName,Object propertyValue);
 	 /**
-	  * ¸ù¾İ¡°ÊôĞÔ-Öµ¡±»ñÈ¡¶à¸öÖ¸¶¨ÀàĞÍµÄ¶ÔÏó
-	  * @param targetName ¶ÔÏóÀàĞÍÃû³Æ
-	  * @param propertyName ¶ÔÏóÖĞÊôĞÔµÄÃû³Æ
-	  * @param propertyValue ¶ÔÏóÖĞÊôĞÔµÄÖµ
-	  * @return ¶ÔÏóµÄÁĞ±í
+	  * æ ¹æ®â€œå±æ€§-å€¼â€è·å–å¤šä¸ªæŒ‡å®šç±»å‹çš„å¯¹è±¡
+	  * @param targetName å¯¹è±¡ç±»å‹åç§°
+	  * @param propertyName å¯¹è±¡ä¸­å±æ€§çš„åç§°
+	  * @param propertyValue å¯¹è±¡ä¸­å±æ€§çš„å€¼
+	  * @return å¯¹è±¡çš„åˆ—è¡¨
 	  */
 	public List<Object> ReadByProperty(String targetName,String propertyName,Object propertyValue);
 	 /**
-	  * »ñÈ¡Ö¸¶¨ÀàĞÍµÄËùÓĞ¶ÔÏó
-	  * @param targetName ¶ÔÏóÀàĞÍÃû³Æ
-	  * @return ¶ÔÏóµÄÁĞ±í
+	  * è·å–æŒ‡å®šç±»å‹çš„æ‰€æœ‰å¯¹è±¡
+	  * @param targetName å¯¹è±¡ç±»å‹åç§°
+	  * @return å¯¹è±¡çš„åˆ—è¡¨
 	  */
 	public List<Object> ReadAll(String targetName);
 	
@@ -74,38 +74,38 @@ public interface BaseDao {
 	public List<Object> ReadByPropertyList(String targetName,String propertyName,Object propertyValue);
 
 	/**
-	 * »ñÈ¡Ö¸¶¨ÀàĞÍµÄ¶ÔÏóµÄÊıÁ¿¡£
-	 * @param targetName ¶ÔÏóÀàĞÍÃû³Æ
-	 * @return ÊıÁ¿
+	 * è·å–æŒ‡å®šç±»å‹çš„å¯¹è±¡çš„æ•°é‡ã€‚
+	 * @param targetName å¯¹è±¡ç±»å‹åç§°
+	 * @return æ•°é‡
 	 */
 	public Integer ReadCount(String targetName);
 	 /**
-	  * ¸ù¾İ¡°ÊôĞÔ-Öµ¡±ÎªÌõ¼ş£¬»ñÈ¡Ö¸¶¨ÀàĞÍµÄ¶ÔÏóµÄÊıÁ¿¡£
-	  * @param targetName ¶ÔÏóÀàĞÍÃû³Æ
-	  * @param propertyName ¶ÔÏóÖĞÊôĞÔµÄÃû³Æ
-	  * @param propertyValue ¶ÔÏóÖĞÊôĞÔµÄÖµ
-	  * @return ÊıÁ¿
+	  * æ ¹æ®â€œå±æ€§-å€¼â€ä¸ºæ¡ä»¶ï¼Œè·å–æŒ‡å®šç±»å‹çš„å¯¹è±¡çš„æ•°é‡ã€‚
+	  * @param targetName å¯¹è±¡ç±»å‹åç§°
+	  * @param propertyName å¯¹è±¡ä¸­å±æ€§çš„åç§°
+	  * @param propertyValue å¯¹è±¡ä¸­å±æ€§çš„å€¼
+	  * @return æ•°é‡
 	  */
 	public Integer ReadCountByProperty(final String targetName,String propertyName, Object value);
 	/**
-	 * »ñÈ¡¶à¸öÖ¸¶¨ÀàĞÍµÄ¶ÔÏó£¬¿ÉÒÔÏŞ¶¨»ñÈ¡¶ÔÏóÊıÄ¿µÄ¶àÉÙ£¬²¢ÇÒ¸ù¾İÌØ¶¨µÄÊôĞÔ½øĞĞÅÅĞò¡£
-	 * @param targetName ¶ÔÏóÀàĞÍÃû³Æ
-	 * @param propertyName ¶ÔÏóÖĞÊôĞÔµÄÃû³Æ£¬ÓÃÓÚÅÅĞò
-	 * @param num ½á¹û¶ÔÏóÁĞ±íµÄ×î´óÊıÄ¿
-	 * @param order ÅÅĞò·½Ê½£¬¿ÉÒÔÑ¡Ôñ¡°asc¡±»òÕß¡°desc¡±
-	 * @return ¶ÔÏóµÄÁĞ±í
+	 * è·å–å¤šä¸ªæŒ‡å®šç±»å‹çš„å¯¹è±¡ï¼Œå¯ä»¥é™å®šè·å–å¯¹è±¡æ•°ç›®çš„å¤šå°‘ï¼Œå¹¶ä¸”æ ¹æ®ç‰¹å®šçš„å±æ€§è¿›è¡Œæ’åºã€‚
+	 * @param targetName å¯¹è±¡ç±»å‹åç§°
+	 * @param propertyName å¯¹è±¡ä¸­å±æ€§çš„åç§°ï¼Œç”¨äºæ’åº
+	 * @param num ç»“æœå¯¹è±¡åˆ—è¡¨çš„æœ€å¤§æ•°ç›®
+	 * @param order æ’åºæ–¹å¼ï¼Œå¯ä»¥é€‰æ‹©â€œascâ€æˆ–è€…â€œdescâ€
+	 * @return å¯¹è±¡çš„åˆ—è¡¨
 	 */
 	public List<Object> ReadLimitedByOrder(String targetName, String propertyName,int num, String order);
 	/**
-	 * Á½¸ö¹¦ÄÜ£º
-	 * 1.¸ù¾İ¡°ÊôĞÔ-Öµ¡±»ñÈ¡¶à¸öÖ¸¶¨ÀàĞÍµÄ¶ÔÏó
-	 * 2.ÏŞ¶¨»ñÈ¡¶ÔÏóÊıÄ¿µÄ¶àÉÙ£¬²¢ÇÒ¸ù¾İÌØ¶¨µÄÊôĞÔ½øĞĞÅÅĞò¡£
-	 * @param targetName ¶ÔÏóÀàĞÍÃû³Æ
-	 * @param readpropertyName ¶ÔÏóÖĞÊôĞÔµÄÃû³Æ£¬ÓÃÓÚ»ñÈ¡¶ÔÏó
-	 * @param readvalue ¶ÔÏóÖĞÊôĞÔµÄÖµ
-	 * @param orderpropertyName ¶ÔÏóÖĞÊôĞÔµÄÃû³Æ£¬ÓÃÓÚÅÅĞò
-	 * @param num ½á¹û¶ÔÏóÁĞ±íµÄ×î´óÊıÄ¿
-	 * @param order ÅÅĞò·½Ê½£¬¿ÉÒÔÑ¡Ôñ¡°asc¡±»òÕß¡°desc¡±
+	 * ä¸¤ä¸ªåŠŸèƒ½ï¼š
+	 * 1.æ ¹æ®â€œå±æ€§-å€¼â€è·å–å¤šä¸ªæŒ‡å®šç±»å‹çš„å¯¹è±¡
+	 * 2.é™å®šè·å–å¯¹è±¡æ•°ç›®çš„å¤šå°‘ï¼Œå¹¶ä¸”æ ¹æ®ç‰¹å®šçš„å±æ€§è¿›è¡Œæ’åºã€‚
+	 * @param targetName å¯¹è±¡ç±»å‹åç§°
+	 * @param readpropertyName å¯¹è±¡ä¸­å±æ€§çš„åç§°ï¼Œç”¨äºè·å–å¯¹è±¡
+	 * @param readvalue å¯¹è±¡ä¸­å±æ€§çš„å€¼
+	 * @param orderpropertyName å¯¹è±¡ä¸­å±æ€§çš„åç§°ï¼Œç”¨äºæ’åº
+	 * @param num ç»“æœå¯¹è±¡åˆ—è¡¨çš„æœ€å¤§æ•°ç›®
+	 * @param order æ’åºæ–¹å¼ï¼Œå¯ä»¥é€‰æ‹©â€œascâ€æˆ–è€…â€œdescâ€
 	 * @return
 	 */
 	public List<Object> ReadByPropertyAndLimitedByOrder(final String targetName, final String readpropertyName,

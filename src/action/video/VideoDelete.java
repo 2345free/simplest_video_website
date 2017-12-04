@@ -1,17 +1,17 @@
 /**
- * ×î¼òµ¥µÄÊÓÆµÍøÕ¾
+ * æœ€ç®€å•çš„è§†é¢‘ç½‘ç«™
  * Simplest Video Website
  *
- * À×Ïöæè Lei Xiaohua
+ * é›·éœ„éª… Lei Xiaohua
  * 
  * leixiaohua1020@126.com
- * ÖĞ¹ú´«Ã½´óÑ§/Êı×ÖµçÊÓ¼¼Êõ
+ * ä¸­å›½ä¼ åª’å¤§å­¦/æ•°å­—ç”µè§†æŠ€æœ¯
  * Communication University of China / Digital TV Technology
  * http://blog.csdn.net/leixiaohua1020
  *
- * ±¾³ÌĞòÊÇÒ»¸ö×î¼òµ¥µÄÊÓÆµÍøÕ¾ÊÓÆµ¡£ËüÖ§³Ö
- * 1.Ö±²¥
- * 2.µã²¥
+ * æœ¬ç¨‹åºæ˜¯ä¸€ä¸ªæœ€ç®€å•çš„è§†é¢‘ç½‘ç«™è§†é¢‘ã€‚å®ƒæ”¯æŒ
+ * 1.ç›´æ’­
+ * 2.ç‚¹æ’­
  * This software is the simplest video website.
  * It support: 
  * 1. live broadcast 
@@ -19,19 +19,15 @@
  */
 package action.video;
 
-import java.io.File;
-import java.util.List;
-
+import bean.Video;
+import com.opensymphony.xwork2.ActionSupport;
 import org.apache.struts2.ServletActionContext;
-
 import service.BaseService;
 
-import bean.Video;
-
-import com.opensymphony.xwork2.ActionSupport;
+import java.io.File;
 /**
- * @author À×Ïöæè
- * É¾³ıÊÓÆµµÄAction
+ * @author é›·éœ„éª…
+ * åˆ é™¤è§†é¢‘çš„Action
  */
 public class VideoDelete extends ActionSupport {
 	private int videoid;
@@ -55,11 +51,11 @@ public class VideoDelete extends ActionSupport {
 	public String execute(){
 		try{
 			Video video=(Video) baseService.ReadByID("Video", videoid);
-			//Ïà¶ÔÂ·¾¶
+			//ç›¸å¯¹è·¯å¾„
 			String thumbnailPath=video.getThumbnailurl();
 			String path=video.getUrl();
 			String oripath=video.getOriurl();
-			//»ñÈ¡¸ùÂ·¾¶£¨¾ø¶ÔÂ·¾¶£©
+			//è·å–æ ¹è·¯å¾„ï¼ˆç»å¯¹è·¯å¾„ï¼‰
 			String thumbnailrealpath=ServletActionContext.getServletContext().getRealPath("/").replace('\\', '/')
 					+thumbnailPath;
 			String realpath=ServletActionContext.getServletContext().getRealPath("/").replace('\\', '/')
@@ -69,7 +65,7 @@ public class VideoDelete extends ActionSupport {
 			File thumbnailfile=new File(thumbnailrealpath);
 			File videofile=new File(realpath);
 			File orivideofile=new File(orirealpath);
-			//É¾³ıÓëÖ®Ïà¹ØµÄ½ØÍ¼ÎÄ¼şºÍÊÓÆµÎÄ¼ş
+			//åˆ é™¤ä¸ä¹‹ç›¸å…³çš„æˆªå›¾æ–‡ä»¶å’Œè§†é¢‘æ–‡ä»¶
 			if(thumbnailfile!=null){
 				thumbnailfile.delete();
 			}
@@ -79,7 +75,7 @@ public class VideoDelete extends ActionSupport {
 			if(orivideofile!=null){
 				orivideofile.delete();
 			}
-			//×îºó²ÅÉ¾³ı¸Ã¼ÇÂ¼
+			//æœ€åæ‰åˆ é™¤è¯¥è®°å½•
 			baseService.delete(video);
 			return SUCCESS;
 		}

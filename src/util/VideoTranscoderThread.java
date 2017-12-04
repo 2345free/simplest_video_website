@@ -1,17 +1,17 @@
 /**
- * ×î¼òµ¥µÄÊÓÆµÍøÕ¾
+ * æœ€ç®€å•çš„è§†é¢‘ç½‘ç«™
  * Simplest Video Website
  *
- * À×Ïöæè Lei Xiaohua
+ * é›·éœ„éª… Lei Xiaohua
  * 
  * leixiaohua1020@126.com
- * ÖĞ¹ú´«Ã½´óÑ§/Êı×ÖµçÊÓ¼¼Êõ
+ * ä¸­å›½ä¼ åª’å¤§å­¦/æ•°å­—ç”µè§†æŠ€æœ¯
  * Communication University of China / Digital TV Technology
  * http://blog.csdn.net/leixiaohua1020
  *
- * ±¾³ÌĞòÊÇÒ»¸ö×î¼òµ¥µÄÊÓÆµÍøÕ¾ÊÓÆµ¡£ËüÖ§³Ö
- * 1.Ö±²¥
- * 2.µã²¥
+ * æœ¬ç¨‹åºæ˜¯ä¸€ä¸ªæœ€ç®€å•çš„è§†é¢‘ç½‘ç«™è§†é¢‘ã€‚å®ƒæ”¯æŒ
+ * 1.ç›´æ’­
+ * 2.ç‚¹æ’­
  * This software is the simplest video website.
  * It support: 
  * 1. live broadcast 
@@ -43,8 +43,8 @@ import service.BaseService;
 
 
 /**
- * @author À×Ïöæè
- * ×ªÂë
+ * @author é›·éœ„éª…
+ * è½¬ç 
  */
 public class VideoTranscoderThread extends Thread {
 private ServletContext servletContext;
@@ -56,7 +56,7 @@ private ServletContext servletContext;
 	public void setServletContext(ServletContext servletContext) {
 		this.servletContext = servletContext;
 	}
-	//¹¹Ôìº¯Êı
+	//æ„é€ å‡½æ•°
 	public VideoTranscoderThread(ServletContext servletContext) {
 		super();
 		this.servletContext = servletContext;
@@ -123,20 +123,20 @@ private ServletContext servletContext;
 						String realfilePath=servletContext.getRealPath("/").replace('\\', '/')+video.getUrl();
 						
 						String realfileoriginalPath=servletContext.getRealPath("/").replace('\\', '/')+video.getOriurl();
-						//×ªÂëÃüÁîÈçÏÂËùÊ¾
+						//è½¬ç å‘½ä»¤å¦‚ä¸‹æ‰€ç¤º
 						//ffmpeg -i xxx.mkv -ar 22050 -b 600k -vcodec libx264 
 						//-vf scale=w=640:h=360:force_original_aspect_ratio=decrease,pad=w=640:h=360:x=(ow-iw)/2:y=(oh-ih)/2[aa];
 						//movie=watermark.png[bb];[aa][bb]overlay=5:5 yyy.flv
-						//AVFilter²ÎÊı×÷ÓÃÈçÏÂËùÊ¾
-						//scale:ÊÓÆµÀ­ÉìÂË¾µ¡£force_original_aspect_ratioÓÃÓÚÇ¿ÖÆ±£³Ö¿í¸ß±È
-						//pad:ÓÃÓÚ¼ÓºÚ±ß£¬ËÄ¸ö²ÎÊıº¬Òå·Ö±ğÎª£º´¦Àíºó¿í£¬´¦Àíºó¸ß£¬ÊäÈëÍ¼Ïñ×óÉÏ½Çx×ø±ê£¬ÊäÈëÊÓÆµ×óÉÏ½ÇY×ø±ê¡£
-						//ÆäÖĞow,ohÎªÊä³ö£¨Ìî³äºó£©ÊÓÆµµÄ¿í¸ß£»iw,ihÎªÊäÈë£¨Ìî³äÇ°£©ÊÓÆµµÄ¿í¸ß¡£
-						//movie£ºÓÃÓÚÖ¸¶¨ĞèÒªµş¼ÓµÄË®Ó¡Logo£¨PNGÎÄ¼ş£©¡£
-						//overlay:ÓÃÓÚµş¼ÓË®Ó¡LogoºÍÊÓÆµÎÄ¼ş
-						//ÃüÁîĞĞ²»Í¬µÄÖ´ĞĞ·½Ê½
-						//cmd /c xxx ÊÇÖ´ĞĞÍêxxxÃüÁîºó¹Ø±ÕÃüÁî´°¿Ú¡£
-						//cmd /k xxx ÊÇÖ´ĞĞÍêxxxÃüÁîºó²»¹Ø±ÕÃüÁî´°¿Ú¡£
-						//cmd /c start xxx »á´ò¿ªÒ»¸öĞÂ´°¿ÚºóÖ´ĞĞxxxÖ¸Áî£¬Ô­´°¿Ú»á¹Ø±Õ¡£
+						//AVFilterå‚æ•°ä½œç”¨å¦‚ä¸‹æ‰€ç¤º
+						//scale:è§†é¢‘æ‹‰ä¼¸æ»¤é•œã€‚force_original_aspect_ratioç”¨äºå¼ºåˆ¶ä¿æŒå®½é«˜æ¯”
+						//pad:ç”¨äºåŠ é»‘è¾¹ï¼Œå››ä¸ªå‚æ•°å«ä¹‰åˆ†åˆ«ä¸ºï¼šå¤„ç†åå®½ï¼Œå¤„ç†åé«˜ï¼Œè¾“å…¥å›¾åƒå·¦ä¸Šè§’xåæ ‡ï¼Œè¾“å…¥è§†é¢‘å·¦ä¸Šè§’Yåæ ‡ã€‚
+						//å…¶ä¸­ow,ohä¸ºè¾“å‡ºï¼ˆå¡«å……åï¼‰è§†é¢‘çš„å®½é«˜ï¼›iw,ihä¸ºè¾“å…¥ï¼ˆå¡«å……å‰ï¼‰è§†é¢‘çš„å®½é«˜ã€‚
+						//movieï¼šç”¨äºæŒ‡å®šéœ€è¦å åŠ çš„æ°´å°Logoï¼ˆPNGæ–‡ä»¶ï¼‰ã€‚
+						//overlay:ç”¨äºå åŠ æ°´å°Logoå’Œè§†é¢‘æ–‡ä»¶
+						//å‘½ä»¤è¡Œä¸åŒçš„æ‰§è¡Œæ–¹å¼
+						//cmd /c xxx æ˜¯æ‰§è¡Œå®Œxxxå‘½ä»¤åå…³é—­å‘½ä»¤çª—å£ã€‚
+						//cmd /k xxx æ˜¯æ‰§è¡Œå®Œxxxå‘½ä»¤åä¸å…³é—­å‘½ä»¤çª—å£ã€‚
+						//cmd /c start xxx ä¼šæ‰“å¼€ä¸€ä¸ªæ–°çª—å£åæ‰§è¡ŒxxxæŒ‡ä»¤ï¼ŒåŸçª—å£ä¼šå…³é—­ã€‚
 						String videotranscodecommand="cmd ";
 						videotranscodecommand+="/c start ";
 						//videotranscodecommand+="/c ";
@@ -186,7 +186,7 @@ private ServletContext servletContext;
 						}
 						
 						if (process.waitFor() != 0) {  
-							if (process.exitValue() == 1)//p.exitValue()==0±íÊ¾Õı³£½áÊø£¬1£º·ÇÕı³£½áÊø  
+							if (process.exitValue() == 1)//p.exitValue()==0è¡¨ç¤ºæ­£å¸¸ç»“æŸï¼Œ1ï¼šéæ­£å¸¸ç»“æŸ  
 								System.err.println("Failed!");  
 						}  
 						inBr.close();  
