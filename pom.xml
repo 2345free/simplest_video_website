@@ -11,7 +11,7 @@
 
     <properties>
         <java.version>1.7</java.version>
-        <springframework.version>3.2.6.RELEASE</springframework.version>
+        <springframework.version>3.0.5.RELEASE</springframework.version>
         <mysql.version>5.1.31</mysql.version>
         <org.aspectj-version>1.8.10</org.aspectj-version>
     </properties>
@@ -81,22 +81,11 @@
         </dependency>
 
         <!-- hibernate -->
+
         <dependency>
             <groupId>org.hibernate</groupId>
             <artifactId>hibernate-entitymanager</artifactId>
             <version>3.6.10.Final</version>
-        </dependency>
-
-        <dependency>
-            <groupId>org.hibernate</groupId>
-            <artifactId>hibernate-validator</artifactId>
-            <version>3.1.0.GA</version>
-        </dependency>
-
-        <dependency>
-            <groupId>org.hibernate</groupId>
-            <artifactId>hibernate-annotations</artifactId>
-            <version>3.5.6-Final</version>
         </dependency>
 
         <!-- AspectJ -->
@@ -109,6 +98,12 @@
             <groupId>org.aspectj</groupId>
             <artifactId>aspectjrt</artifactId>
             <version>${org.aspectj-version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>javax.persistence</groupId>
+            <artifactId>persistence-api</artifactId>
+            <version>1.0.2</version>
         </dependency>
 
         <dependency>
@@ -136,39 +131,9 @@
         </dependency>
 
         <dependency>
-            <groupId>commons-digester</groupId>
-            <artifactId>commons-digester</artifactId>
-            <version>2.1</version>
-        </dependency>
-
-        <dependency>
-            <groupId>commons-chain</groupId>
-            <artifactId>commons-chain</artifactId>
-            <version>1.2</version>
-        </dependency>
-
-        <dependency>
-            <groupId>aopalliance</groupId>
-            <artifactId>aopalliance</artifactId>
-            <version>1.0</version>
-        </dependency>
-
-        <dependency>
-            <groupId>cglib</groupId>
-            <artifactId>cglib</artifactId>
-            <version>3.2.0</version>
-        </dependency>
-
-        <dependency>
             <groupId>antlr</groupId>
             <artifactId>antlr</artifactId>
             <version>2.7.6</version>
-        </dependency>
-
-        <dependency>
-            <groupId>classworlds</groupId>
-            <artifactId>classworlds</artifactId>
-            <version>1.1</version>
         </dependency>
 
         <dependency>
@@ -177,11 +142,11 @@
             <version>3.0.0</version>
         </dependency>
 
-        <dependency>
+        <!--<dependency>
             <groupId>net.sf.json-lib</groupId>
             <artifactId>json-lib</artifactId>
             <version>2.4</version>
-        </dependency>
+        </dependency>-->
 
         <dependency>
             <groupId>net.java.dev.jna</groupId>
